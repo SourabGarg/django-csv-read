@@ -6,5 +6,11 @@
 </head>
 <body>
     <h1>HTML Result</h1>
+    <ul>
+        {% for file_name in csv_files %}
+            <li>{{ file_name }}</li>
+        {% endfor %}
+    </ul>
+    <h3>Done</h3>
 </body>
 </html>
