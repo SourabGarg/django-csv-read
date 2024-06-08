@@ -10,7 +10,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             height: 100vh;
             margin: 20px 0 0 0;
         }
@@ -20,7 +19,11 @@
     </style>
 </head>
 <body>
-    <h1>Result of <span style="color:green;"> "{{ csv_file_name }}" </span></h1>
+    <h1>Result of <span style="color:green;"> {{ csv_file_name }} </span></h1>
+    <h2><span style="color:red;"> {{ csv_file_name }} </span> Data</h2>
+    {{ first_few_rows|safe }}
+
+    <h2><span style="color:red;"> {{ csv_file_name }} </span> Data's numeric calculation</h2>
     <table border="1">
         <tr>
             <th>Column</th>
@@ -37,7 +40,7 @@
         </tr>
         {% endfor %}
     </table>
-    <h1>Graph of <span style="color:green;"> "{{ csv_file_name }}" </span> with <span style="color:blue;">Age vs Salary</span></h1>
+    <h1>Graph of <span style="color:green;"> {{ csv_file_name }} </span> with <span style="color:blue;">Age vs Salary</span></h1>
     <div>
        <img src="{% static 'age_vs_salary_plot.png' %}" alt="Scatter Plot">
     </div>

@@ -18,9 +18,10 @@ def result(request):
 
     csv_file = csv_files[-1]
     data_file = pd.read_csv(csv_file, na_values='None')
+    file_rows = data_file.head()
 
     numeric_columns = data_file.select_dtypes(include='number').columns
-    numeric_stats = data_file[numeric_columns].agg(['mean', 'median', 'std'])
+    numeric_stats = data_file[numeric_columns].agg(['mean', 'median', 'std']).round(2)
 
     plt.figure()
     plt.scatter(data_file['Age'], data_file['Salary'])
@@ -33,7 +34,9 @@ def result(request):
     plt.savefig(plot_path)
 
     csv_file_name = csv_files[0].split('/')[-1]
+    file_rows = file_rows.to_html(float_format='{:.2f}'.format, index=False)
     context = {'csv_file_name': csv_file_name,
+               'first_few_rows': file_rows,
                'numeric_stats': numeric_stats.to_dict(),
                'plot_path': plot_path}
     return render(request, "result/result.html", context)
