@@ -7,5 +7,5 @@ class csv_form(forms.ModelForm):
         model = CSVUpload
         fields = ['csv']
         widgets = {
-            'csv': forms.FileInput(attrs={'accept': '.svg, .csv'})
+            'csv': forms.FileInput(attrs={'accept': '.csv'})
         }

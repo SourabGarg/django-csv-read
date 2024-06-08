@@ -1,16 +1,44 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 20px 0 0 0;
+        }
+        ul, table {
+            margin-top: 20px; /* Add margin to create space between elements */
+        }
+    </style>
 </head>
 <body>
-    <h1>HTML Result</h1>
-    <ul>
-        {% for file_name in csv_files %}
-            <li>{{ file_name }}</li>
+    <table border="1">
+        <tr>
+            <th>Column</th>
+            <th>Mean</th>
+            <th>Median</th>
+            <th>Standard Deviation</th>
+        </tr>
+        {% for column, stats in numeric_stats.items %}
+        <tr>
+            <td>{{ column }}</td>
+            <td>{{ stats.mean }}</td>
+            <td>{{ stats.median }}</td>
+            <td>{{ stats.std }}</td>
+        </tr>
         {% endfor %}
-    </ul>
-    <h3>Done</h3>
+    </table>
+    <h1>Scatter Plot: Age vs Salary</h1>
+    <div>
+       <img src="{% static 'age_vs_salary_plot.png' %}" alt="Scatter Plot">
+    </div>
 </body>
 </html>
