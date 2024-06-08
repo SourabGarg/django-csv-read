@@ -43,3 +43,10 @@ The project consists of a Django project named 'csv_read' with the main function
 ## Sample CSV File
 A sample CSV file named `test_data.csv` is provided in the repository for testing purposes.
 
+# Result
+
+![image](https://github.com/SourabGarg/django-csv-read/assets/112079423/af0c0fa4-b371-4400-98a1-59dbdd671ba2)
+
+![image](https://github.com/SourabGarg/django-csv-read/assets/112079423/8ebd6469-5ecf-4312-8788-d2f4e72776cc)
+
+
