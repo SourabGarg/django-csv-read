@@ -5,8 +5,8 @@ from django.shortcuts import render
 import matplotlib
 matplotlib.use('Agg')
 
+
 def result(request):
-    print("-----------")
     csv_uploads = CSVUpload.objects.all()
 
     csv_files = []
@@ -32,7 +32,8 @@ def result(request):
     plot_path = plots_folder + "/age_vs_salary_plot.png"
     plt.savefig(plot_path)
 
-    context = {'csv_files': csv_files,
+    csv_file_name = csv_files[0].split('/')[-1]
+    context = {'csv_file_name': csv_file_name,
                'numeric_stats': numeric_stats.to_dict(),
                'plot_path': plot_path}
     return render(request, "result/result.html", context)

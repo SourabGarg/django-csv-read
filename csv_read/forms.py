@@ -9,3 +9,9 @@ class csv_form(forms.ModelForm):
         widgets = {
             'csv': forms.FileInput(attrs={'accept': '.csv'})
         }
+
+
+def delete_all_csv_files():
+    for csv_upload in CSVUpload.objects.all():
+        csv_upload.csv.delete()
+        csv_upload.delete()

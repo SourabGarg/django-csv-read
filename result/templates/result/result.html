@@ -20,6 +20,7 @@
     </style>
 </head>
 <body>
+    <h1>Result of <span style="color:green;"> "{{ csv_file_name }}" </span></h1>
     <table border="1">
         <tr>
             <th>Column</th>
@@ -36,7 +37,7 @@
         </tr>
         {% endfor %}
     </table>
-    <h1>Scatter Plot: Age vs Salary</h1>
+    <h1>Graph of <span style="color:green;"> "{{ csv_file_name }}" </span> with <span style="color:blue;">Age vs Salary</span></h1>
     <div>
        <img src="{% static 'age_vs_salary_plot.png' %}" alt="Scatter Plot">
     </div>
